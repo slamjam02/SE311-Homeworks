@@ -1,0 +1,3 @@
+To run my program, run the KWICServer.jar file first. (If you wish to test the client connection, make sure the first argument is 'keyword-server'). Then, make sure the configuration file is in the same directory, as well as the input file, and it should run. The default port is 4000 but this can be changed in the config.properties file.
+
+Then, run the KWICClient.jar. The default address is localhost, and the default port is 4000. You may specify an IP and port in the command line arguments. It should tell you how to format it when you run the program. If the connection is successful, it should prompt you for a keyword. The program will end after the results are displayed.

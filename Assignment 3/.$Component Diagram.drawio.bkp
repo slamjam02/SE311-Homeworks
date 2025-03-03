@@ -1,0 +1,75 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.17 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.17">
+  <diagram name="Page-1" id="xhguUG0QdK94cpGox8Ds">
+    <mxGraphModel dx="641" dy="464" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="hv8tsOJplIf2LrR3ogcn-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" edge="1" parent="1" source="hv8tsOJplIf2LrR3ogcn-27" target="hv8tsOJplIf2LrR3ogcn-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="410" y="350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hv8tsOJplIf2LrR3ogcn-7" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry y="220" width="310" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="hv8tsOJplIf2LrR3ogcn-8" value="" style="group" vertex="1" connectable="0" parent="hv8tsOJplIf2LrR3ogcn-7">
+          <mxGeometry width="309.99999999999994" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="hv8tsOJplIf2LrR3ogcn-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="hv8tsOJplIf2LrR3ogcn-8">
+          <mxGeometry width="294.49999999999994" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="hv8tsOJplIf2LrR3ogcn-4" value="&lt;b&gt;Client PC&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="hv8tsOJplIf2LrR3ogcn-8">
+          <mxGeometry x="107.24999999999999" y="7.998888888888889" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="hv8tsOJplIf2LrR3ogcn-30" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="hv8tsOJplIf2LrR3ogcn-8">
+          <mxGeometry x="284" y="119.52" width="20.96" height="20.96" as="geometry" />
+        </mxCell>
+        <mxCell id="hv8tsOJplIf2LrR3ogcn-2" value="KWICClientApplication" style="html=1;dropTarget=0;whiteSpace=wrap;" vertex="1" parent="hv8tsOJplIf2LrR3ogcn-8">
+          <mxGeometry x="36.05434782608695" y="115.55555555555556" width="222.3913043478261" height="101.11111111111111" as="geometry" />
+        </mxCell>
+        <mxCell id="hv8tsOJplIf2LrR3ogcn-3" value="" style="shape=module;jettyWidth=8;jettyHeight=4;" vertex="1" parent="hv8tsOJplIf2LrR3ogcn-2">
+          <mxGeometry x="1" width="20" height="20" relative="1" as="geometry">
+            <mxPoint x="-27" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hv8tsOJplIf2LrR3ogcn-9" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="510" y="310" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hv8tsOJplIf2LrR3ogcn-10" value="" style="group" vertex="1" connectable="0" parent="hv8tsOJplIf2LrR3ogcn-9">
+          <mxGeometry width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hv8tsOJplIf2LrR3ogcn-11" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="hv8tsOJplIf2LrR3ogcn-10">
+          <mxGeometry width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hv8tsOJplIf2LrR3ogcn-12" value="&lt;b&gt;Server&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="hv8tsOJplIf2LrR3ogcn-10">
+          <mxGeometry x="60.00004576659039" y="25.002437275985663" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="hv8tsOJplIf2LrR3ogcn-28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" edge="1" parent="1" source="hv8tsOJplIf2LrR3ogcn-11" target="hv8tsOJplIf2LrR3ogcn-27">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="510" y="350" as="sourcePoint" />
+            <mxPoint x="300" y="350" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="410" y="350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hv8tsOJplIf2LrR3ogcn-29" value="Socket" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="hv8tsOJplIf2LrR3ogcn-28">
+          <mxGeometry x="-0.1467" y="2" relative="1" as="geometry">
+            <mxPoint x="-29" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hv8tsOJplIf2LrR3ogcn-27" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="500" y="340" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="hv8tsOJplIf2LrR3ogcn-31" value="Port 1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="290" y="360" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="hv8tsOJplIf2LrR3ogcn-32" value="Port 2" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="360" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
