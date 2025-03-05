@@ -2,12 +2,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
-public class CalculatorUI extends JFrame {
+public class CalculatorView extends JFrame {
     private JTextArea outputArea;
+    private ArrayList<ActionListener> listeners;
+    private JPanel buttonPanel;
 
-    public CalculatorUI() {
-        setTitle("Calculator UI");
+    public CalculatorView() {
+        listeners = new ArrayList<ActionListener>();
+        
+        setTitle("Calculator");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
         setSize(320, 400);
@@ -22,7 +27,7 @@ public class CalculatorUI extends JFrame {
         outputPanel.add(new JScrollPane(outputArea), BorderLayout.CENTER);
 
         // Create the button panel
-        JPanel buttonPanel = new JPanel();
+        buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(4, 4, 5, 5));
         String[] buttons = {
             "1", "2", "3", "+",
@@ -31,10 +36,10 @@ public class CalculatorUI extends JFrame {
             "0", "=", "C", "/"
         };
 
+        // Make buttons
         for (String text : buttons) {
             JButton button = new JButton(text);
             button.setFont(new Font("Arial", Font.PLAIN, 30));
-            button.addActionListener(new ButtonClickListener());
             buttonPanel.add(button);
         }
 
@@ -44,18 +49,27 @@ public class CalculatorUI extends JFrame {
         add(buttonPanel, BorderLayout.CENTER);
     }
 
-    private class ButtonClickListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            JButton source = (JButton) e.getSource();
-            outputArea.append(source.getText());
-        }
-    }
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
+
+        CalculatorListener calculatorListener = new CalculatorListener();
+
         SwingUtilities.invokeLater(() -> {
-            CalculatorUI calculator = new CalculatorUI();
+            CalculatorView calculator = new CalculatorView();
+            calculator.attach(calculatorListener);
             calculator.setVisible(true);
         });
     }
+    
+
+    public void attach(ActionListener listener){
+        this.listeners.add(listener);
+        for(Component component : buttonPanel.getComponents()){
+            JButton button = (JButton) component;
+            button.addActionListener(listener);
+        }
+    }
+
+    
+
 }
