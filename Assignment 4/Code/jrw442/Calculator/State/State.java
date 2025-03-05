@@ -1,11 +1,17 @@
 package jrw442.Calculator.State;
 
 public abstract class State {
-    public State() {
+    protected String currentState;
+    protected String currentText;
+
+    public State(String currentText) {
+        this.currentText = currentText;
 
     }
 
     public abstract State getNextState(String input);
 
-    public abstract String getDisplayText();
+    public String getCurrentText(){
+        return this.currentText;
+    }
 }

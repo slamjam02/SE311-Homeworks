@@ -3,23 +3,22 @@ package jrw442.Calculator.State;
 
 public class Start extends State {
 
-    private String currentText;
-
     public Start(String currentText){
-        this.currentText = currentText;
+        super(currentText);
+        super.currentState = "Start";
     }
 
     @Override
     public State getNextState(String input) {
-        // TODO Auto-generated method stub
-        System.out.println("Pressed: " + input);
-        this.currentText = currentText + input;
-        return new Start(currentText);
-    }
+        super.currentText = currentText + input;
+        System.out.println("\nChar pressed: " + input + "\nCurrent state: " + super.currentState +  "\nCurrent string: " + super.currentText);
+    
+        if(Character.isDigit(input.charAt(0))){
+            return new GetFirstOp(currentText);
+        } else {
+            return new Start("");
+        }
 
-    @Override
-    public String getDisplayText() {
-        return this.currentText;
     }
     
 }

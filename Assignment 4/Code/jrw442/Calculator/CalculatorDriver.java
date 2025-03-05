@@ -19,7 +19,7 @@ public class CalculatorDriver implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         this.currentState = currentState.getNextState(((JButton) e.getSource()).getText());
-        calculatorView.updateDisplay(this.currentState.getDisplayText());
+        calculatorView.updateDisplay(this.currentState.getCurrentText());
     }
 
 

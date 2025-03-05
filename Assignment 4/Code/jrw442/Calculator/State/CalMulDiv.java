@@ -2,6 +2,11 @@ package jrw442.Calculator.State;
 
 public class CalMulDiv extends State{
 
+    public CalMulDiv(String currentText) {
+        super(currentText);
+        super.currentState = "Calculating";
+    }
+    
     @Override
     public State getNextState(String input) {
         // TODO Auto-generated method stub
