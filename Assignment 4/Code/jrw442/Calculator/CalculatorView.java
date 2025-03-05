@@ -1,6 +1,8 @@
+package jrw442.Calculator;
+
 import javax.swing.*;
+
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
@@ -48,18 +50,6 @@ public class CalculatorView extends JFrame {
         add(outputPanel, BorderLayout.NORTH);
         add(buttonPanel, BorderLayout.CENTER);
     }
-
-
-    public static void main(String[] args){
-
-        CalculatorListener calculatorListener = new CalculatorListener();
-
-        SwingUtilities.invokeLater(() -> {
-            CalculatorView calculator = new CalculatorView();
-            calculator.attach(calculatorListener);
-            calculator.setVisible(true);
-        });
-    }
     
 
     public void attach(ActionListener listener){
@@ -68,6 +58,11 @@ public class CalculatorView extends JFrame {
             JButton button = (JButton) component;
             button.addActionListener(listener);
         }
+    }
+
+
+    public void updateDisplay(String displayText) {
+        this.outputArea.setText(displayText);
     }
 
     
