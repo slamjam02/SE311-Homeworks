@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.17 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.17">
   <diagram name="Page-1" id="OkXsAYMR7_yzgFztzNQj">
-    <mxGraphModel dx="1368" dy="1391" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="924" dy="1391" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -247,7 +247,7 @@
         <mxCell id="SzojaOviCsZuA26BR49B-20" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="SzojaOviCsZuA26BR49B-18" vertex="1">
           <mxGeometry y="56" width="210" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="SzojaOviCsZuA26BR49B-21" value="+ operation()&lt;div&gt;+ addLeft()&lt;/div&gt;&lt;div&gt;+ addRight()&lt;/div&gt;&lt;div&gt;+ getLeft()&lt;/div&gt;&lt;div&gt;+ getRight()&lt;/div&gt;&lt;div&gt;+ acceptVisitor(v: ExpressionVisitor)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="SzojaOviCsZuA26BR49B-18" vertex="1">
+        <mxCell id="SzojaOviCsZuA26BR49B-21" value="&lt;div&gt;+ addLeft()&lt;/div&gt;&lt;div&gt;+ addRight()&lt;/div&gt;&lt;div&gt;+ getLeft()&lt;/div&gt;&lt;div&gt;+ getRight()&lt;/div&gt;&lt;div&gt;+ acceptVisitor(v: ExpressionVisitor)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="SzojaOviCsZuA26BR49B-18" vertex="1">
           <mxGeometry y="64" width="210" height="106" as="geometry" />
         </mxCell>
         <mxCell id="SzojaOviCsZuA26BR49B-30" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=blockThin;endFill=0;endSize=20;curved=0;" parent="1" source="SzojaOviCsZuA26BR49B-22" target="SzojaOviCsZuA26BR49B-18" edge="1">
@@ -262,7 +262,7 @@
         <mxCell id="SzojaOviCsZuA26BR49B-24" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="SzojaOviCsZuA26BR49B-22" vertex="1">
           <mxGeometry y="56" width="200" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="SzojaOviCsZuA26BR49B-25" value="+ operation()&lt;div&gt;+ addLeft()&lt;/div&gt;&lt;div&gt;+ addRight()&lt;/div&gt;&lt;div&gt;+ getLeft()&lt;/div&gt;&lt;div&gt;+ getRight()&lt;/div&gt;&lt;div&gt;+ acceptVisitor()&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="SzojaOviCsZuA26BR49B-22" vertex="1">
+        <mxCell id="SzojaOviCsZuA26BR49B-25" value="&lt;div&gt;+ addLeft()&lt;/div&gt;&lt;div&gt;+ addRight()&lt;/div&gt;&lt;div&gt;+ getLeft()&lt;/div&gt;&lt;div&gt;+ getRight()&lt;/div&gt;&lt;div&gt;+ acceptVisitor()&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="SzojaOviCsZuA26BR49B-22" vertex="1">
           <mxGeometry y="64" width="200" height="96" as="geometry" />
         </mxCell>
         <mxCell id="SzojaOviCsZuA26BR49B-39" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=diamondThin;endFill=0;endSize=20;entryX=1;entryY=0.5;entryDx=0;entryDy=0;curved=0;" parent="SzojaOviCsZuA26BR49B-22" source="SzojaOviCsZuA26BR49B-22" target="SzojaOviCsZuA26BR49B-25" edge="1">
@@ -285,7 +285,7 @@
         <mxCell id="SzojaOviCsZuA26BR49B-28" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="SzojaOviCsZuA26BR49B-26" vertex="1">
           <mxGeometry y="56" width="200" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="SzojaOviCsZuA26BR49B-29" value="+ operation()&lt;div&gt;+ addLeft()&lt;/div&gt;&lt;div&gt;+ addRight()&lt;/div&gt;&lt;div&gt;+ getLeft()&lt;/div&gt;&lt;div&gt;+ getRight()&lt;/div&gt;&lt;div&gt;+ acceptVisitor()&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="SzojaOviCsZuA26BR49B-26" vertex="1">
+        <mxCell id="SzojaOviCsZuA26BR49B-29" value="&lt;div&gt;+ addLeft()&lt;/div&gt;&lt;div&gt;+ addRight()&lt;/div&gt;&lt;div&gt;+ getLeft()&lt;/div&gt;&lt;div&gt;+ getRight()&lt;/div&gt;&lt;div&gt;+ acceptVisitor()&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="SzojaOviCsZuA26BR49B-26" vertex="1">
           <mxGeometry y="64" width="200" height="96" as="geometry" />
         </mxCell>
         <mxCell id="SzojaOviCsZuA26BR49B-37" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=blockThin;endFill=0;endSize=20;curved=0;" parent="1" source="SzojaOviCsZuA26BR49B-33" target="SzojaOviCsZuA26BR49B-22" edge="1">
