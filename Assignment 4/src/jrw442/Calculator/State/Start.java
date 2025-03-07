@@ -4,7 +4,7 @@ package jrw442.Calculator.State;
 public class Start extends State {
 
     public Start(String currentText){
-        super("");
+        super(currentText);
         super.currentState = "Start";
 
         System.out.println("\nCurrent state: " + super.currentState +  "\nCurrent string: " + super.currentText);

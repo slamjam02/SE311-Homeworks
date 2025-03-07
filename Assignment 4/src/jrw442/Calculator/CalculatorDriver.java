@@ -26,9 +26,11 @@ public class CalculatorDriver implements ActionListener{
     public static void main(String[] args){
         SwingUtilities.invokeLater(() -> {
             CalculatorView calculatorView = new CalculatorView();
+            calculatorView.setVisible(true);
+            
             CalculatorDriver calculatorDriver = new CalculatorDriver(calculatorView);
             calculatorView.attach(calculatorDriver);
-            calculatorView.setVisible(true);
+            
         });
     }
 }

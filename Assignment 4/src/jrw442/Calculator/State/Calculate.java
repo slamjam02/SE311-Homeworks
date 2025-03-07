@@ -29,9 +29,14 @@ public class Calculate extends State{
 
         System.out.println("\nChar pressed: " + input);
     
-        //Character inputChar = input.charAt(0);
+        Character inputChar = input.charAt(0);
 
-        return new Start("");
+        if(Character.isDigit(inputChar)){
+            return new Start(input);
+        } else {
+            return new Start("");
+        }
+        
         
     }
 
