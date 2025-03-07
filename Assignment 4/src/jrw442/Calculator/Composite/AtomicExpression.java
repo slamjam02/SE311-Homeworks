@@ -1,5 +1,7 @@
 package jrw442.Calculator.Composite;
 
+import jrw442.Calculator.Visitor.ExpressionVisitor;
+
 public class AtomicExpression extends MulDivExpression{
 
     private double value;
@@ -34,6 +36,10 @@ public class AtomicExpression extends MulDivExpression{
     @Override
     public Expression getRight() {
         throw new UnsupportedOperationException("Cannot get child from leaf node AtomicExpression");
+    }
+
+    public void acceptVisitor(ExpressionVisitor v) {
+        v.visit(this);
     }
 
 }

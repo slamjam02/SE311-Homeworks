@@ -6,6 +6,13 @@ public class AddSubExpression extends Expression{
 
     private Expression left;
     private Expression right;
+    private char operator; 
+
+    public AddSubExpression(Expression left, Expression right, char operator) {
+        this.left = left;
+        this.right = right;
+        this.operator = operator;
+    }
 
     @Override
     public void addLeft(Expression e) {
@@ -27,7 +34,10 @@ public class AddSubExpression extends Expression{
         return this.right;
     }
 
-    @Override
+    public char getOperator(){
+        return this.operator;
+    }
+
     public void acceptVisitor(ExpressionVisitor v) {
         v.visit(this);
     }

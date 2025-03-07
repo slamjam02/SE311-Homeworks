@@ -11,8 +11,6 @@ public abstract class Expression {
     public abstract void addRight(Expression e);
     public abstract Expression getLeft();
     public abstract Expression getRight();
-    public void acceptVisitor(ExpressionVisitor v){
-        v.visit(this);
-    }
+    public abstract void acceptVisitor(ExpressionVisitor v);
 
 }

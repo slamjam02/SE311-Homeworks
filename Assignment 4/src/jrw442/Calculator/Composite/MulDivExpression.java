@@ -6,6 +6,17 @@ public class MulDivExpression extends Expression{
 
     private MulDivExpression left;
     private MulDivExpression right;
+    private char operator;
+
+    public MulDivExpression() {
+        
+    }
+
+    public MulDivExpression(Expression left, Expression right, char operator) {
+        this.left = (MulDivExpression) left;
+        this.right = (MulDivExpression) right;
+        this.operator = operator;
+    }
 
     @Override
     public void addLeft(Expression e) {
@@ -27,7 +38,10 @@ public class MulDivExpression extends Expression{
         return this.right;
     }
 
-    @Override
+    public char getOperator(){
+        return this.operator;
+    }
+
     public void acceptVisitor(ExpressionVisitor v) {
         v.visit(this);
     }
