@@ -14,10 +14,10 @@ public class CalculatorView extends JFrame {
     public CalculatorView() {
         listeners = new ArrayList<ActionListener>();
         
-        setTitle("Calculator");
+        setTitle("Simple Calculator");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
-        setSize(320, 400);
+        setSize(500, 600);
         setLocationRelativeTo(null);
 
         // Create the output panel
@@ -25,7 +25,7 @@ public class CalculatorView extends JFrame {
         outputPanel.setLayout(new BorderLayout());
         outputArea = new JTextArea(3, 20);
         outputArea.setEditable(false);
-        outputArea.setFont(new Font("Arial", Font.PLAIN, 24));
+        outputArea.setFont(new Font("Arial", Font.PLAIN, 28));
         outputPanel.add(new JScrollPane(outputArea), BorderLayout.CENTER);
 
         // Create the button panel
