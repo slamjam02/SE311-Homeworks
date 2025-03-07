@@ -4,13 +4,32 @@ public class GetAddSub extends State{
 
     public GetAddSub(String currentText) {
         super(currentText);
-        super.currentState = "Calculating";
+        super.currentState = "Getting add-sub operand";
+
+        System.out.println("\nCurrent state: " + super.currentState +  "\nCurrent string: " + super.currentText);
+
     }
     
-        @Override
+    // Done
+    @Override
     public State getNextState(String input) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getNextState'");
+        super.currentText = currentText + input;
+        System.out.println("\nChar pressed: " + input);
+    
+        Character inputChar = input.charAt(0);
+        if (Character.isDigit(inputChar)){
+            return new GetAddSub(currentText);
+        } else if (inputChar == '='){
+            return new Calculate(currentText);
+        } else if (inputChar == '+' || inputChar == '-'){
+            return new WaitAddSub(currentText);
+        } else if (inputChar == '*' || inputChar == '/'){
+            return new WaitMulDiv(currentText);
+        } else if (inputChar == '='){
+            return new Calculate(currentText);
+        } else {
+            return new Start("");
+        }
     }
 
 }

@@ -3,14 +3,23 @@ package jrw442.Calculator.State;
 public class Error extends State{
 
     public Error(String currentText){
-        super(currentText);
-        super.currentState = "Calculating";
+        super("Err");
+        super.currentState = "Error";
+
+        System.out.println("\nCurrent state: " + super.currentState +  "\nCurrent string: " + super.currentText);
+
     }
 
     @Override
     public State getNextState(String input) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getNextState'");
+        System.out.println("\nChar pressed: " + input);
+    
+        Character inputChar = input.charAt(0);
+        if (inputChar == 'C'){
+            return new Start("");
+        } else {
+            return new Error(currentText);
+        }
     }
 
 }

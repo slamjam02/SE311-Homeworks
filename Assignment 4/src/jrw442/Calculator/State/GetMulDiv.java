@@ -1,14 +1,15 @@
 package jrw442.Calculator.State;
 
-public class GetFirstOp extends State{
+public class GetMulDiv extends State{
 
-    public GetFirstOp(String currentText) {
+    public GetMulDiv(String currentText) {
         super(currentText);
-        super.currentState = "Getting first operand";
+        super.currentState = "Getting mul-div operand";
 
         System.out.println("\nCurrent state: " + super.currentState +  "\nCurrent string: " + super.currentText);
-    }
 
+    }
+    
     // Done
     @Override
     public State getNextState(String input) {
@@ -17,7 +18,7 @@ public class GetFirstOp extends State{
     
         Character inputChar = input.charAt(0);
         if (Character.isDigit(inputChar)){
-            return new GetFirstOp(currentText);
+            return new GetMulDiv(currentText);
         } else if (inputChar == '+' || inputChar == '-'){
             return new WaitAddSub(currentText);
         } else if (inputChar == '*' || inputChar == '/'){
