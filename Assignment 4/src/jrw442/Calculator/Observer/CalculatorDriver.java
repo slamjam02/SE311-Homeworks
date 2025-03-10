@@ -12,14 +12,14 @@ public class CalculatorDriver implements ActionListener{
     private CalculatorView calculatorView;
 
     public CalculatorDriver(CalculatorView calculatorView){
-        this.currentState = new Start("");
+        this.currentState = new Start();
         this.calculatorView = calculatorView;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        this.currentState = currentState.getNextState(((JButton) e.getSource()).getText());
-        calculatorView.updateDisplay(this.currentState.getCurrentText());
+        this.currentState = currentState.getNextState(((JButton) e.getSource()).getText().charAt(0));
+        calculatorView.updateDisplay(this.currentState.getExpressionString());
     }
 
 

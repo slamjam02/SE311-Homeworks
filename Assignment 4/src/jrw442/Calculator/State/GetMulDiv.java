@@ -1,33 +1,33 @@
 package jrw442.Calculator.State;
 
+import jrw442.Calculator.Composite.*;
+
+
 public class GetMulDiv extends State{
 
-    public GetMulDiv(String currentText) {
-        super(currentText);
-        super.currentState = "Getting mul-div operand";
-
-        System.out.println("\nCurrent state: " + super.currentState +  "\nCurrent string: " + super.currentText);
-
+    public GetMulDiv(Expression expression) {
+        super(expression);
     }
-    
-    // Done
+
     @Override
-    public State getNextState(String input) {
-        super.currentText = currentText + input;
-        System.out.println("\nChar pressed: " + input);
-    
-        Character inputChar = input.charAt(0);
-        if (Character.isDigit(inputChar)){
-            return new GetMulDiv(currentText);
-        } else if (inputChar == '+' || inputChar == '-'){
-            return new WaitAddSub(currentText);
-        } else if (inputChar == '*' || inputChar == '/'){
-            return new WaitMulDiv(currentText);
-        } else if (inputChar == '='){
-            return new Calculate(currentText);
-        } else {
-            return new Start("");
+    public State getNextState(char input) {
+        logState(input);
+        if (Character.isDigit(input)) {
+            MulDivExpression expr = (MulDivExpression) currentExpression;
+            double newValue = appendDigit(((AtomicExpression) expr.getRight()).getValue(), input);
+            return new GetMulDiv(new MulDivExpression(expr.getLeft(), new AtomicExpression(newValue), expr.getOperator()));
+        } else if (input == '+' || input == '-') {
+            return new WaitAddSub(currentExpression, input);
+        } else if (input == '*' || input == '/') {
+            return new WaitMulDiv(currentExpression, input);
+        } else if (input == '=') {
+            return new Calculate(currentExpression);
         }
+        return new Error(this);
     }
 
+    private double appendDigit(double current, char newDigit) {
+        return current * 10 + Character.getNumericValue(newDigit);
+    }
 }
+

@@ -1,28 +1,28 @@
 package jrw442.Calculator.State;
 
+import jrw442.Calculator.Composite.*;
+import jrw442.Calculator.Visitor.ToStringVisitor;
 
 public class Start extends State {
 
-    public Start(String currentText){
-        super(currentText);
-        super.currentState = "Start";
-
-        System.out.println("\nCurrent state: " + super.currentState +  "\nCurrent string: " + super.currentText);
-
+    public Start() {
+        super(null);
     }
 
-    // Done
     @Override
-    public State getNextState(String input) {
-        super.currentText = currentText + input;
-        System.out.println("\nChar pressed: " + input);
-    
-        if(Character.isDigit(input.charAt(0))){
-            return new GetFirstOp(currentText);
-        } else {
-            return new Start("");
+    public State getNextState(char input) {
+        logState(input);
+        if (Character.isDigit(input)) {
+            return new GetFirstOp(new AtomicExpression(Character.getNumericValue(input)));
+        } else if (input == 'C'){
+            return new Start();
         }
+        return new Error(this);
+    }
 
+    @Override
+    public String getExpressionString() {
+        return "";
     }
     
 }

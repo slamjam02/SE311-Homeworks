@@ -1,29 +1,33 @@
 package jrw442.Calculator.State;
 
+import jrw442.Calculator.Visitor.ToStringVisitor;
+
 public class Error extends State{
 
-    private State priorState;
 
-    public Error(State priorState){
-        super("ERROR\n[C: RESET]\n[ANY OTHER KEY: DISCARD]");
-        super.currentState = "Error";
+    private final State previousState;
 
-        this.priorState = priorState;
-
-        System.out.println("\nCurrent state: " + super.currentState +  "\nCurrent string: " + super.currentText);
-
+    public Error(State previousState) {
+        super(previousState != null ? previousState.getCurrentExpression() : null);
+        this.previousState = previousState;
     }
 
     @Override
-    public State getNextState(String input) {
-        System.out.println("\nChar pressed: " + input);
-    
-        Character inputChar = input.charAt(0);
-        if (inputChar == 'C'){
-            return new Start("");
-        } else {
-            return priorState;
+    public State getNextState(char input) {
+        logState(input);
+        if (input == 'C') {
+            return new Start();
         }
+        return previousState != null ? previousState : new Start();
+    }
+   
+    public String getExpressionString() {
+        return """
+                ERROR
+                [C: RESET]
+                [ANY OTHER KEY: DISCARD]
+                """;
     }
 
+ 
 }

@@ -1,43 +1,28 @@
 package jrw442.Calculator.State;
 
+import jrw442.Calculator.Composite.AtomicExpression;
 import jrw442.Calculator.Composite.Expression;
-import jrw442.Calculator.Visitor.ParserVisitor;
-import jrw442.Calculator.Visitor.SolveVisitor;
+import jrw442.Calculator.Visitor.*;
 
 public class Calculate extends State{
 
-    public Calculate(String currentText) {
-        super(currentText);
-
-        // Calculate stuff
-
-        ParserVisitor expressionHandler = new ParserVisitor();
-        Expression expression = expressionHandler.parse(currentText);
-        SolveVisitor solver = new SolveVisitor();
-        expression.acceptVisitor(solver);
-
-        super.currentText = solver.getResultString();
-        super.currentState = "Calculating";
-
-        System.out.println("\nCurrent state: " + super.currentState +  "\nCurrent string: " + super.currentText);
-
+    public Calculate(Expression expression) {
+        super(expression);
     }
 
     @Override
-    public State getNextState(String input) {
-
-
-        System.out.println("\nChar pressed: " + input);
-    
-        Character inputChar = input.charAt(0);
-
-        if(Character.isDigit(inputChar)){
-            return new Start(input);
-        } else {
-            return new Start("");
+    public State getNextState(char input) {
+        logState(input);
+        if (Character.isDigit(input)) {
+            return new GetFirstOp(new AtomicExpression(Character.getNumericValue(input)));
         }
-        
-        
+        return new Start();
     }
 
+    @Override
+    public String getExpressionString() {
+        SolverVisitor solver = new SolverVisitor();
+        currentExpression.acceptVisitor(solver);
+        return String.valueOf(solver.getResult());
+    }
 }

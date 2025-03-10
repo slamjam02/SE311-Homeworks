@@ -1,32 +1,26 @@
 package jrw442.Calculator.State;
+import jrw442.Calculator.Composite.*;
+import jrw442.Calculator.Visitor.ExpressionBuilderVisitor;
+
 
 public class GetFirstOp extends State{
 
-    public GetFirstOp(String currentText) {
-        super(currentText);
-        super.currentState = "Getting first operand";
-
-        System.out.println("\nCurrent state: " + super.currentState +  "\nCurrent string: " + super.currentText);
+    public GetFirstOp(Expression expression) {
+        super(expression);
     }
 
-    // Done
     @Override
-    public State getNextState(String input) {
-        super.currentText = currentText + input;
-        System.out.println("\nChar pressed: " + input);
-    
-        Character inputChar = input.charAt(0);
-        if (Character.isDigit(inputChar)){
-            return new GetFirstOp(currentText);
-        } else if (inputChar == '+' || inputChar == '-'){
-            return new WaitAddSub(currentText);
-        } else if (inputChar == '*' || inputChar == '/'){
-            return new WaitMulDiv(currentText);
-        } else if (inputChar == '='){
-            return new Calculate(currentText);
-        } else {
-            return new Start("");
+    public State getNextState(char input) {
+        logState(input);
+        if (Character.isDigit(input)) {
+            ExpressionBuilderVisitor visitor = new ExpressionBuilderVisitor(currentExpression, input, false);
+            currentExpression.acceptVisitor(visitor);
+            return new GetFirstOp(visitor.getModifiedExpression());
+        } else if (input == '+' || input == '-') {
+            return new WaitAddSub(currentExpression, input);
+        } else if (input == '*' || input == '/') {
+            return new WaitMulDiv(currentExpression, input);
         }
+        return new Error(this);
     }
-
 }
