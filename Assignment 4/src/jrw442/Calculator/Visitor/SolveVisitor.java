@@ -1,5 +1,7 @@
 package jrw442.Calculator.Visitor;
 
+import java.text.DecimalFormat;
+
 import jrw442.Calculator.Composite.AddSubExpression;
 import jrw442.Calculator.Composite.AtomicExpression;
 import jrw442.Calculator.Composite.MulDivExpression;
@@ -8,7 +10,15 @@ public class SolveVisitor implements ExpressionVisitor {
     private double result;
 
     public double getResult() {
-        return result;
+        return this.result;
+    }
+
+    public String getResultString() {
+        if (result % 1 == 0) {
+            return String.format("%.0f", result); // No decimals if it's a whole number
+        } else {
+            return String.valueOf(result); // Default string conversion
+        }
     }
 
     @Override

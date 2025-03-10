@@ -2,9 +2,13 @@ package jrw442.Calculator.State;
 
 public class Error extends State{
 
-    public Error(String currentText){
-        super("Err");
+    private State priorState;
+
+    public Error(State priorState){
+        super("ERROR\n[C: RESET]\n[ANY OTHER KEY: DISCARD]");
         super.currentState = "Error";
+
+        this.priorState = priorState;
 
         System.out.println("\nCurrent state: " + super.currentState +  "\nCurrent string: " + super.currentText);
 
@@ -18,7 +22,7 @@ public class Error extends State{
         if (inputChar == 'C'){
             return new Start("");
         } else {
-            return new Error(currentText);
+            return priorState;
         }
     }
 

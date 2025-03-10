@@ -1,4 +1,4 @@
-package jrw442.Calculator;
+package jrw442.Calculator.Observer;
 
 import javax.swing.*;
 
@@ -16,7 +16,6 @@ public class CalculatorView extends JFrame {
         
         setTitle("Simple Calculator");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        
         setSize(500, 600);
         setLocationRelativeTo(null);
 

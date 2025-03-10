@@ -1,4 +1,4 @@
-package jrw442.Calculator;
+package jrw442.Calculator.Observer;
 
 import jrw442.Calculator.State.*;
 import java.awt.event.ActionEvent;

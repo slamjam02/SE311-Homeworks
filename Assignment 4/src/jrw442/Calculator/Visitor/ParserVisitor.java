@@ -7,7 +7,7 @@ import jrw442.Calculator.Composite.AtomicExpression;
 import jrw442.Calculator.Composite.Expression;
 import jrw442.Calculator.Composite.MulDivExpression;
 
-public class ExpressionParser {
+public class ParserVisitor implements ExpressionVisitor{
 
     private ArrayList<String> tokens;
     private int currentIndex;
@@ -64,6 +64,24 @@ public class ExpressionParser {
     private Expression parseFactor() {
         String token = tokens.get(currentIndex++);
         return new AtomicExpression(Double.parseDouble(token));
+    }
+
+    @Override
+    public void visit(AtomicExpression exp) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'visit'");
+    }
+
+    @Override
+    public void visit(AddSubExpression exp) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'visit'");
+    }
+
+    @Override
+    public void visit(MulDivExpression exp) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'visit'");
     }
 
 }

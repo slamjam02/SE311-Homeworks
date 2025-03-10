@@ -13,18 +13,17 @@ public class WaitMulDiv extends State{
     // Done
     @Override
     public State getNextState(String input) {
-        super.currentText = currentText + input;
         System.out.println("\nChar pressed: " + input);
     
         Character inputChar = input.charAt(0);
         if (Character.isDigit(inputChar)){
-            return new GetMulDiv(currentText);
+            return new GetMulDiv(currentText + input);
         } else if (inputChar == '+' || inputChar == '-'){
-            return new Error(currentText);
+            return new Error(this);
         } else if (inputChar == '*' || inputChar == '/'){
-            return new Error(currentText);
+            return new Error(this);
         } else if (inputChar == '='){
-            return new Error(currentText);
+            return new Error(this);
         } else {
             return new Start("");
         }

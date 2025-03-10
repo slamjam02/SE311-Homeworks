@@ -13,16 +13,15 @@ public class WaitAddSub extends State{
     // Done
     @Override
     public State getNextState(String input) {
-        super.currentText = currentText + input;
         System.out.println("\nChar pressed: " + input);
     
         Character inputChar = input.charAt(0);
         if (Character.isDigit(inputChar)){
-            return new GetAddSub(currentText);
+            return new GetAddSub(currentText + input);
         } else if (inputChar == 'C') {
             return new Start("");
         } else {
-            return new Error(currentText);
+            return new Error(this);
         }
     }
 
