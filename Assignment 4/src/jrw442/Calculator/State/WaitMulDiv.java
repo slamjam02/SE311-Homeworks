@@ -1,13 +1,9 @@
 package jrw442.Calculator.State;
 
-import jrw442.Calculator.Composite.*;
-import jrw442.Calculator.Visitor.ExpressionBuilderVisitor;
-import jrw442.Calculator.Visitor.ToStringVisitor;
+import jrw442.Calculator.Composite.Expression;
 
 public class WaitMulDiv extends State{
-
-
-   private char operator;
+    private char operator;
 
     public WaitMulDiv(Expression left, char operator) {
         super(left);

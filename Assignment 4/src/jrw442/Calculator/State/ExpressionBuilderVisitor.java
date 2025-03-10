@@ -1,9 +1,8 @@
-package jrw442.Calculator.Visitor;
+package jrw442.Calculator.State;
 
-import jrw442.Calculator.Composite.AddSubExpression;
-import jrw442.Calculator.Composite.AtomicExpression;
-import jrw442.Calculator.Composite.Expression;
-import jrw442.Calculator.Composite.MulDivExpression;
+import jrw442.Calculator.Composite.*;
+import jrw442.Calculator.Visitor.ExpressionVisitor;
+import jrw442.Calculator.Visitor.ToStringVisitor;
 
 public class ExpressionBuilderVisitor implements ExpressionVisitor {
     private Expression modifiedExpression;
@@ -39,13 +38,15 @@ public class ExpressionBuilderVisitor implements ExpressionVisitor {
                 modifiedExpression = new AddSubExpression(expr, new AtomicExpression(Character.getNumericValue(input)), this.input);
             }
         } else if (input == '*' || input == '/') {
-            // Wrap only the right operand in a multiplication/division expression
+            // Instead of replacing the right operand, wrap it in a MulDivExpression
             Expression right = expr.getRight();
-            modifiedExpression = new AddSubExpression(
-                expr.getLeft(),
-                new MulDivExpression(right, new AtomicExpression(0), input),
-                expr.getOperator()
-            );
+            if (right instanceof AtomicExpression) {
+                modifiedExpression = new AddSubExpression(
+                    expr.getLeft(),
+                    new MulDivExpression(right, new AtomicExpression(0), input),
+                    expr.getOperator()
+                );
+            }
         }
     }
 
