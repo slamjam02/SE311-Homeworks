@@ -1,9 +1,11 @@
 package jrw442.Calculator.State;
 
+import jrw442.Calculator.Composite.Expression;
+
 public class WaitAddSub extends State{
 
-    public WaitAddSub(String currentText) {
-        super(currentText);
+    public WaitAddSub(Expression currentExpression) {
+        super(currentExpression);
         super.currentState = "Waiting for add-sub operand";
 
         System.out.println("\nCurrent state: " + super.currentState +  "\nCurrent string: " + super.currentText);

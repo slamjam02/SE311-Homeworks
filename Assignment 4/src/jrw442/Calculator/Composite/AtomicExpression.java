@@ -2,44 +2,44 @@ package jrw442.Calculator.Composite;
 
 import jrw442.Calculator.Visitor.ExpressionVisitor;
 
-public class AtomicExpression extends MulDivExpression{
-
+public class AtomicExpression extends Expression {
     private double value;
 
-    public AtomicExpression(double value){
+    public AtomicExpression(double value) {
         this.value = value;
     }
 
-    public void setValue(double value){
+    public double getValue() {
+        return value;
+    }
+
+    public void setValue(double value) {
         this.value = value;
     }
 
-    public double getValue(){
-        return this.value;
+    @Override
+    public void enterDigit(int digit) {
+        // Append digit to existing value (e.g., 2 -> 22 when '2' is pressed again)
+        this.value = this.value * 10 + digit;
     }
 
     @Override
-    public void addLeft(Expression e) {
-        throw new UnsupportedOperationException("Cannot add child to leaf node AtomicExpression");
-    }
-
-    @Override
-    public void addRight(Expression e) {
-        throw new UnsupportedOperationException("Cannot add child to leaf node AtomicExpression");
+    public void enterOperator(char operator) {
+        throw new IllegalStateException("Cannot enter operator immediately after a number without a parent expression.");
     }
 
     @Override
     public Expression getLeft() {
-        throw new UnsupportedOperationException("Cannot get child from leaf node AtomicExpression");
+        return null; // Leaf node
     }
 
     @Override
     public Expression getRight() {
-        throw new UnsupportedOperationException("Cannot get child from leaf node AtomicExpression");
+        return null; // Leaf node
     }
 
+    @Override
     public void acceptVisitor(ExpressionVisitor v) {
         v.visit(this);
     }
-
 }
