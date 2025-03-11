@@ -11,10 +11,18 @@ public class Calculate extends State{
 
         // Calculate stuff
 
+        // Open socket
+        // Send equation
+
+
+
         ParserVisitor expressionHandler = new ParserVisitor();
         Expression expression = expressionHandler.parse(currentText);
         SolveVisitor solver = new SolveVisitor();
         expression.acceptVisitor(solver);
+
+        // Send = + result string
+        // Close socket
 
         super.currentText = solver.getResultString();
         super.currentState = "Calculating";
