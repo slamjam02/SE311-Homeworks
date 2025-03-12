@@ -64,6 +64,23 @@ public class CalculatorView extends JFrame {
         this.outputArea.setText(displayText);
     }
 
+    public boolean popUp(String body, String button1, String button2) {
+        Object[] options = {button1, button2}; // Custom button labels
+    
+        int choice = JOptionPane.showOptionDialog(
+            null,                    // Parent component (null for center of screen)
+            body,                    // Message body
+            "Confirmation",          // Title of the dialog
+            JOptionPane.YES_NO_OPTION, // Dialog type
+            JOptionPane.QUESTION_MESSAGE, // Icon type
+            null,                    // Custom icon (null for default)
+            options,                 // Custom button text
+            options[0]               // Default selected option
+        );
+    
+        return choice == 0; // Returns true if button1 is clicked, false if button2 is clicked
+    }
+
     
 
 }

@@ -13,6 +13,9 @@ public class SolveVisitor implements ExpressionVisitor {
     }
 
     public String getResultString() {
+        if (String.valueOf(result).equals("Infinity")){
+            return "Undefined";
+        }
         if (result % 1 == 0) {
             return String.format("%.0f", result); // No decimals if it's a whole number
         } else {
