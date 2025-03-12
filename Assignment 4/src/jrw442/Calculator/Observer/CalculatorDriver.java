@@ -1,11 +1,12 @@
 package jrw442.Calculator.Observer;
 
+import jrw442.Calculator.Composite.AtomicExpression;
+import jrw442.Calculator.Composite.Expression;
 import jrw442.Calculator.State.*;
 import jrw442.Calculator.State.Error;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.beans.Expression;
 
 import javax.swing.JButton;
 import javax.swing.SwingUtilities;
@@ -77,4 +78,5 @@ public class CalculatorDriver implements ActionListener, StateContext{
             
         });
     }
+
 }

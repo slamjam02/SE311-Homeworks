@@ -1,6 +1,7 @@
 package jrw442.Calculator.State;
 
 import jrw442.Calculator.Composite.*;
+import jrw442.Calculator.Observer.StateContext;
 
 public class Start extends State {
 
@@ -17,7 +18,8 @@ public class Start extends State {
 
 
         if(Character.isDigit(input.charAt(0))){
-            return new GetFirstOp(new AtomicExpression(Double.parseDouble(input)));
+            context.setCurrentExpression(new AtomicExpression(Double.parseDouble(input)));
+            return new GetFirstOp(context);
         } else {
             return new Start(context);
         }

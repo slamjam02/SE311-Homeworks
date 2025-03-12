@@ -1,12 +1,12 @@
 package jrw442.Calculator.State;
-
-import jrw442.Calculator.Composite.Expression;
+import jrw442.Calculator.Observer.StateContext;
 
 public class Error extends State{
 
     private State priorState;
 
-    public Error(StateContext context){
+
+    public Error(StateContext context, State priorState){
         super(context);
         super.currentState = "Error";
 
@@ -22,7 +22,7 @@ public class Error extends State{
     
         Character inputChar = input.charAt(0);
         if (inputChar == 'C'){
-            return new Start();
+            return new Start(context);
         } else {
             return priorState;
         }

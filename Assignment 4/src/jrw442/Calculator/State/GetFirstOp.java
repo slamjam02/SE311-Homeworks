@@ -1,6 +1,7 @@
 package jrw442.Calculator.State;
 
 import jrw442.Calculator.Composite.*;
+import jrw442.Calculator.Observer.StateContext;
 
 public class GetFirstOp extends State{
 
@@ -16,16 +17,18 @@ public class GetFirstOp extends State{
     
         Character inputChar = input.charAt(0);
         if (Character.isDigit(inputChar)){
-            super.currentExpression.enterDigit(Character.getNumericValue(inputChar));
-            return new GetFirstOp(super.currentExpression);
+            context.getCurrentExpression().enterDigit(Character.getNumericValue(inputChar));
+            return new GetFirstOp(context);
         } else if (inputChar == '*' || inputChar == '/'){
-            return new WaitMulDiv(new MulDivExpression(super.currentExpression, null, inputChar));
+            context.setCurrentExpression(new MulDivExpression(context.getCurrentExpression(), null, inputChar));
+            return new WaitMulDiv(context);
         } else if (inputChar == '+' || inputChar == '-'){
-            return new WaitAddSub(new AddSubExpression(super.currentExpression, null, inputChar));
+            context.setCurrentExpression(new AddSubExpression(context.getCurrentExpression(), null, inputChar));
+            return new WaitAddSub(context);
         } else if (inputChar == '='){
-            return new Calculate(super.currentExpression);
+            return new Calculate(context);
         } else {
-            return new Start();
+            return new Start(context);
         }
     }
 }

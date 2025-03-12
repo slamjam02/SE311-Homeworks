@@ -3,11 +3,12 @@ package jrw442.Calculator.State;
 import jrw442.Calculator.Composite.AddSubExpression;
 import jrw442.Calculator.Composite.Expression;
 import jrw442.Calculator.Composite.MulDivExpression;
+import jrw442.Calculator.Observer.StateContext;
 
 public class WaitAddSub extends State{
 
-    public WaitAddSub(Expression expression) {
-        super(expression);
+    public WaitAddSub(StateContext context) {
+        super(context);
         super.currentState = "Waiting for add-sub operand";
 
         System.out.println("\nCurrent state: " + super.currentState +  "\nCurrent string: " + super.getCurrentText());
@@ -21,12 +22,12 @@ public class WaitAddSub extends State{
     
         Character inputChar = input.charAt(0);
         if (Character.isDigit(inputChar)){
-            super.currentExpression.enterDigit(Integer.parseInt(input));
-            return new GetAddSub(super.currentExpression);
+            context.getCurrentExpression().enterDigit(Integer.parseInt(input));
+            return new GetAddSub(context);
         } else if (inputChar == 'C') {
-            return new Start();
+            return new Start(context);
         } else {
-            return new Error(super.currentExpression);
+            return new Error(context, this);
         }
 
     }

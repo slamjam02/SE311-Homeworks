@@ -1,11 +1,12 @@
 package jrw442.Calculator.State;
 
 import jrw442.Calculator.Composite.Expression;
+import jrw442.Calculator.Observer.StateContext;
 
 public class WaitMulDiv extends State{
 
-    public WaitMulDiv(Expression expression) {
-        super(expression);
+    public WaitMulDiv(StateContext context) {
+        super(context);
         super.currentState = "Waiting for mul-div operand";
 
         System.out.println("\nCurrent state: " + super.currentState +  "\nCurrent string: " + super.getCurrentText());
@@ -19,16 +20,16 @@ public class WaitMulDiv extends State{
     
         Character inputChar = input.charAt(0);
         if (Character.isDigit(inputChar)){
-            super.currentExpression.enterDigit(Integer.parseInt(input));
-            return new GetMulDiv(super.currentExpression);
+            context.getCurrentExpression().enterDigit(Integer.parseInt(input));
+            return new GetMulDiv(context);
         } else if (inputChar == '+' || inputChar == '-'){
-            return new Error(super.currentExpression);
+            return new Error(context, this);
         } else if (inputChar == '*' || inputChar == '/'){
-            return new Error(super.currentExpression);
+            return new Error(context, this);
         } else if (inputChar == '='){
-            return new Error(super.currentExpression);
+            return new Error(context, this);
         } else {
-            return new Start();
+            return new Start(context);
         }
     }
  

@@ -2,6 +2,7 @@ package jrw442.Calculator.State;
 
 import jrw442.Calculator.Composite.AtomicExpression;
 import jrw442.Calculator.Composite.Expression;
+import jrw442.Calculator.Observer.StateContext;
 import jrw442.Calculator.Visitor.ParserVisitor;
 import jrw442.Calculator.Visitor.SolveVisitor;
 
@@ -40,9 +41,10 @@ public class Calculate extends State{
         Character inputChar = input.charAt(0);
 
         if(Character.isDigit(inputChar)){
-            return new GetFirstOp(new AtomicExpression(Double.parseDouble(input)));
+            context.setCurrentExpression(new AtomicExpression(Double.parseDouble(input)));
+            return new GetFirstOp(context);
         } else {
-            return new Start();
+            return new Start(context);
         }
         
         

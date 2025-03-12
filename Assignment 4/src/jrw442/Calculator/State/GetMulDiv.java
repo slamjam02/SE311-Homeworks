@@ -1,11 +1,12 @@
 package jrw442.Calculator.State;
 
 import jrw442.Calculator.Composite.*;
+import jrw442.Calculator.Observer.StateContext;
 
 public class GetMulDiv extends State{
 
-    public GetMulDiv(Expression expression) {
-        super(expression);
+    public GetMulDiv(StateContext context) {
+        super(context);
         super.currentState = "Getting mul-div operand";
         System.out.println("\nCurrent state: " + super.currentState + "\nCurrent string: " + super.getCurrentText());
     }
@@ -16,21 +17,23 @@ public class GetMulDiv extends State{
         Character inputChar = input.charAt(0);
 
         if (Character.isDigit(inputChar)) {
-            super.currentExpression.enterDigit(Character.getNumericValue(inputChar));
-            return new GetMulDiv(super.currentExpression);
+            context.getCurrentExpression().enterDigit(Character.getNumericValue(inputChar));
+            return new GetMulDiv(context);
         } 
         else if (inputChar == '*' || inputChar == '/') {
-            return new WaitMulDiv(new MulDivExpression(this.currentExpression, null, inputChar));
+            context.setCurrentExpression(new MulDivExpression(context.getCurrentExpression(), null, inputChar));
+            return new WaitMulDiv(context);
         } 
         else if (inputChar == '+' || inputChar == '-') {
             // Instead of replacing the tree, wrap `MulDivExpression` inside a new `AddSubExpression`
-            return new WaitAddSub(new AddSubExpression(this.currentExpression, null, inputChar));
+            context.setCurrentExpression(new AddSubExpression(context.getCurrentExpression(), null, inputChar));
+            return new WaitAddSub(context);
         } 
         else if (inputChar == '=') {
-            return new Calculate(super.currentExpression);
+            return new Calculate(context);
         } 
         else {
-            return new Start(); // Handle errors or invalid characters
+            return new Start(context); // Handle errors or invalid characters
         }
     }
 }

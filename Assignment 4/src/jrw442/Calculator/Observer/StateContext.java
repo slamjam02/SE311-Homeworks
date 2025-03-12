@@ -1,6 +1,6 @@
-package jrw442.Calculator.State;
+package jrw442.Calculator.Observer;
+import jrw442.Calculator.Composite.*;
 
-import java.beans.Expression;
 
 public interface StateContext {
     public abstract void resetCurrentExpression();

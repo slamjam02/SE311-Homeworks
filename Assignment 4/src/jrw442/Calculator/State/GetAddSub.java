@@ -1,6 +1,7 @@
 package jrw442.Calculator.State;
 
 import jrw442.Calculator.Composite.*;
+import jrw442.Calculator.Observer.StateContext;
 
 public class GetAddSub extends State{
 
@@ -16,7 +17,7 @@ public class GetAddSub extends State{
         System.out.println("Char pressed: " + input);
         Character inputChar = input.charAt(0);
 
-        Expression currentExpression = context.getExpression();  // Get global expression
+        Expression currentExpression = context.getCurrentExpression();  // Get global expression
 
         if (Character.isDigit(inputChar)) {
             currentExpression.enterDigit(Character.getNumericValue(inputChar));
@@ -30,17 +31,17 @@ public class GetAddSub extends State{
                 MulDivExpression newMulDiv = new MulDivExpression(parent.getRight(), null, inputChar);
                 parent.setRight(newMulDiv);
                 
-                context.setExpression(parent);  // Update global tree
+                context.setCurrentExpression(parent);  // Update global tree
                 return new WaitMulDiv(context);
             } else {
                 MulDivExpression newMulDiv = new MulDivExpression(currentExpression, null, inputChar);
-                context.setExpression(newMulDiv);  // Ensure global tree is updated
+                context.setCurrentExpression(newMulDiv);  // Ensure global tree is updated
                 return new WaitMulDiv(context);
             }
         } 
         else if (inputChar == '+' || inputChar == '-') {
             AddSubExpression newAddSub = new AddSubExpression(currentExpression, null, inputChar);
-            context.setExpression(newAddSub);  // Update global tree
+            context.setCurrentExpression(newAddSub);  // Update global tree
             return new WaitAddSub(context);
         } 
         else if (inputChar == '=') {
