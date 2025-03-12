@@ -1,8 +1,5 @@
 package jrw442.Calculator.State;
 
-import jrw442.Calculator.Composite.AddSubExpression;
-import jrw442.Calculator.Composite.Expression;
-import jrw442.Calculator.Composite.MulDivExpression;
 import jrw442.Calculator.Observer.StateContext;
 
 public class WaitAddSub extends State{
@@ -11,7 +8,7 @@ public class WaitAddSub extends State{
         super(context);
         super.currentState = "Waiting for add-sub operand";
 
-        System.out.println("\nCurrent state: " + super.currentState +  "\nCurrent string: " + super.getCurrentText());
+        System.out.println("\nCurrent state: " + super.currentState +  "\nCurrent expression: " + super.getCurrentText());
 
     }
 

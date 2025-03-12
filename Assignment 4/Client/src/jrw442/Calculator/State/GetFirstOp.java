@@ -8,7 +8,7 @@ public class GetFirstOp extends State{
     public GetFirstOp(StateContext context) {
         super(context);
         super.currentState = "Getting first operand";
-        System.out.println("\nCurrent state: " + super.currentState + "\nCurrent string: " + super.getCurrentText());
+        System.out.println("\nCurrent state: " + super.currentState + "\nCurrent expression: " + super.getCurrentText());
     }
 
     @Override

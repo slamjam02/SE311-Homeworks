@@ -9,7 +9,7 @@ public class GetAddSub extends State{
         super(context);
 
         super.currentState = "Getting add-sub operand";
-        System.out.println("\nCurrent state: " + super.currentState + "\nCurrent string: " + super.getCurrentText());
+        System.out.println("\nCurrent state: " + super.currentState + "\nCurrent expression: " + super.getCurrentText());
     }
     
     @Override

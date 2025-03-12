@@ -1,6 +1,5 @@
 package jrw442.Calculator.State;
 
-import jrw442.Calculator.Composite.Expression;
 import jrw442.Calculator.Observer.StateContext;
 
 public class WaitMulDiv extends State{
@@ -9,7 +8,7 @@ public class WaitMulDiv extends State{
         super(context);
         super.currentState = "Waiting for mul-div operand";
 
-        System.out.println("\nCurrent state: " + super.currentState +  "\nCurrent string: " + super.getCurrentText());
+        System.out.println("\nCurrent state: " + super.currentState +  "\nCurrent expression: " + super.getCurrentText());
 
     }
 

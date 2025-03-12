@@ -12,7 +12,7 @@ public class Error extends State{
 
         this.priorState = priorState;
 
-        System.out.println("\nCurrent state: " + super.currentState +  "\nCurrent string: " + super.getCurrentText());
+        System.out.println("\nCurrent state: " + super.currentState +  "\nCurrent expression: " + super.getCurrentText());
 
     }
 

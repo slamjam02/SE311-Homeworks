@@ -1,7 +1,5 @@
 package jrw442.Calculator.State;
 
-import jrw442.Calculator.Composite.*;
-import jrw442.Calculator.Observer.CalculatorDriver;
 import jrw442.Calculator.Observer.StateContext;
 
 public abstract class State {

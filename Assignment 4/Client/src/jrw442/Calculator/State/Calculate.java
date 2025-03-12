@@ -1,9 +1,7 @@
 package jrw442.Calculator.State;
 
 import jrw442.Calculator.Composite.AtomicExpression;
-import jrw442.Calculator.Composite.Expression;
 import jrw442.Calculator.Observer.StateContext;
-import jrw442.Calculator.Visitor.ParserVisitor;
 import jrw442.Calculator.Visitor.SolveVisitor;
 
 public class Calculate extends State{
@@ -28,7 +26,7 @@ public class Calculate extends State{
 
         super.currentState = "Calculating";
 
-        System.out.println("\nCurrent state: " + super.currentState +  "\nCurrent string: " + super.getCurrentText());
+        System.out.println("\nCurrent state: " + super.currentState +  "\nCurrent expression: " + super.getCurrentText());
 
     }
 

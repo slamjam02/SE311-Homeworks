@@ -8,7 +8,7 @@ public class Start extends State {
     public Start(StateContext context){
         super(context);
         super.currentState = "Start";
-        System.out.println("\nCurrent state: " + super.currentState +  "\nCurrent tree: ");
+        System.out.println("\nCurrent state: " + super.currentState +  "\nCurrent expression: ");
     }
 
     // Done
