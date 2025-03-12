@@ -1,7 +1,5 @@
 package jrw442.Calculator.State;
 
-import jrw442.Calculator.Observer.StateContext;
-
 public abstract class State {
     protected String currentState;
     protected StateContext context;

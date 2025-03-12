@@ -1,7 +1,6 @@
 package jrw442.Calculator.State;
 
 import jrw442.Calculator.Composite.AtomicExpression;
-import jrw442.Calculator.Observer.StateContext;
 import jrw442.Calculator.Visitor.SolveVisitor;
 
 public class Calculate extends State{

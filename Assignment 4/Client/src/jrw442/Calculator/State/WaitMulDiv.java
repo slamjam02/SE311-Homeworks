@@ -1,7 +1,5 @@
 package jrw442.Calculator.State;
 
-import jrw442.Calculator.Observer.StateContext;
-
 public class WaitMulDiv extends State{
 
     public WaitMulDiv(StateContext context) {
