@@ -42,4 +42,26 @@ public class AtomicExpression extends Expression {
     public void acceptVisitor(ExpressionVisitor v) {
         v.visit(this);
     }
+
+    @Override
+    public void setRight(Expression expression){
+        throw new IllegalStateException("Cannot enter operator immediately after a number without a parent expression.");
+    }
+
+    @Override
+    public void setLeft(Expression expression){
+        throw new IllegalStateException("Cannot enter operator immediately after a number without a parent expression.");
+    }
+
+    @Override
+    public char getOperator() {
+        throw new UnsupportedOperationException("Cannot get operator for AtomicExpression");
+    }
+
+    @Override
+    public String toString() {
+        return Double.toString(value); // Assuming `value` holds the number
+    }
+
+    
 }

@@ -34,7 +34,7 @@ public class AddSubExpression extends Expression {
             right = newRoot;
         } else {
             // Higher precedence (mul/div), attach it to the right
-            right = new MulDivExpression(right, null, newOperator);
+            right = new MulDivExpression((MulDivExpression) right, null, newOperator);
         }
     }
 
@@ -48,6 +48,18 @@ public class AddSubExpression extends Expression {
         return right;
     }
 
+    
+    @Override
+    public void setRight(Expression expression){
+        this.right = expression;
+    }
+
+    @Override
+    public void setLeft(Expression expression){
+        this.left = expression;
+    }
+
+    @Override
     public char getOperator(){
         return this.operator;
     }
@@ -55,5 +67,13 @@ public class AddSubExpression extends Expression {
     @Override
     public void acceptVisitor(ExpressionVisitor v) {
         v.visit(this);
+    }
+
+    @Override
+    public String toString() {  
+        String leftStr = (left == null) ? "?" : left.toString();
+        String rightStr = (right == null) ? "?" : right.toString();
+        
+        return "(" + leftStr + " " + operator + " " + rightStr + ")";
     }
 }

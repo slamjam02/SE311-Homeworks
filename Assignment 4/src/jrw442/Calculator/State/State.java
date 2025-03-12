@@ -1,18 +1,23 @@
 package jrw442.Calculator.State;
 
 import jrw442.Calculator.Composite.*;
+import jrw442.Calculator.Observer.CalculatorDriver;
 
 public abstract class State {
     protected String currentState;
-    protected Expression currentExpression;
+    protected StateContext context;
 
-    public State(Expression expression) {
-        this.currentExpression = expression;
+    public State(StateContext context) {
+        this.context = context;
     }
 
     public abstract State getNextState(String input);
 
     public String getCurrentText(){
-        return this.currentExpression.toString();
+        return this.context.getCurrentExpression().toString();
+    }
+
+    public String getResult(){
+        return null;
     }
 }

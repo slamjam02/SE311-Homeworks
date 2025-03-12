@@ -1,38 +1,31 @@
 package jrw442.Calculator.State;
 
-import jrw442.Calculator.Composite.AddSubExpression;
-import jrw442.Calculator.Composite.AtomicExpression;
-import jrw442.Calculator.Composite.Expression;
+import jrw442.Calculator.Composite.*;
 
 public class GetFirstOp extends State{
 
-    public GetFirstOp(Expression expression) {
-        super(expression);
+    public GetFirstOp(StateContext context) {
+        super(context);
         super.currentState = "Getting first operand";
-
-        System.out.println("\nCurrent state: " + super.currentState +  "\nCurrent string: " + super.getCurrentText());
+        System.out.println("\nCurrent state: " + super.currentState + "\nCurrent string: " + super.getCurrentText());
     }
 
-    // Done
     @Override
     public State getNextState(String input) {
-        System.out.println("\nChar pressed: " + input);
+        System.out.println("Char pressed: " + input);
     
         Character inputChar = input.charAt(0);
         if (Character.isDigit(inputChar)){
-            super.currentExpression.enterDigit(Integer.parseInt(input));
+            super.currentExpression.enterDigit(Character.getNumericValue(inputChar));
             return new GetFirstOp(super.currentExpression);
-        } else if (inputChar == '+' || inputChar == '-'){
-            super.currentExpression = new AddSubExpression(currentExpression, null, inputChar);
-            return new WaitAddSub(super.currentExpression);
         } else if (inputChar == '*' || inputChar == '/'){
-            super.currentExpression.enterOperator(input.charAt(0));
-            return new WaitMulDiv(super.currentExpression);
+            return new WaitMulDiv(new MulDivExpression(super.currentExpression, null, inputChar));
+        } else if (inputChar == '+' || inputChar == '-'){
+            return new WaitAddSub(new AddSubExpression(super.currentExpression, null, inputChar));
         } else if (inputChar == '='){
             return new Calculate(super.currentExpression);
         } else {
             return new Start();
         }
     }
-
 }
