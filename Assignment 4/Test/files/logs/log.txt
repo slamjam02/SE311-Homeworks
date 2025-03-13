@@ -1,0 +1,5 @@
+Total requests: 2
+
+Received Equations: 
+9 + 9 * 1 = 18.0
+7 + 3 / 2 = 8.5
